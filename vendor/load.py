@@ -28,15 +28,15 @@ class NewApp:
         PORT = int(os.getenv('PORT', c['port']))
 
         #Change current directory
-        os.chdir(self.BASE_DIR( self.path, self.folder, root['file']))     
+        os.chdir(self.BASE_DIR( self.path, self.folder))     
         self.UP_SERVER(PORT)
 
 
     
-    def BASE_DIR(self, path, folder, _file):
+    def BASE_DIR(self, path, folder):
         #path defoult from BASE_DIR of system
         value = os.path.basename(path)
-        path_value = '%s' % value+'/'+'%s/%s' % (folder, _file)
+        path_value = '%s' % value+'/'+'%s' % folder
         return path_value
 
 
