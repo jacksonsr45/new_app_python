@@ -14,6 +14,9 @@ c = {
     'port': 8000,
 }
 
+root = {
+    'file': 'index.html' 
+}
 
 class NewApp:
     def __init__(self, *args, **keyargs):
@@ -25,15 +28,15 @@ class NewApp:
         PORT = int(os.getenv('PORT', c['port']))
 
         #Change current directory
-        os.chdir(self.BASE_DIR( self.path, self.folder))     
+        os.chdir(self.BASE_DIR( self.path, self.folder, root['file']))     
         self.UP_SERVER(PORT)
 
 
     
-    def BASE_DIR(self, path, folder):
+    def BASE_DIR(self, path, folder, _file):
         #path defoult from BASE_DIR of system
         value = os.path.basename(path)
-        path_value = '%s' % value+'/'+'%s' % folder
+        path_value = '%s' % value+'/'+'%s/%s' % (folder, _file)
         return path_value
 
 
